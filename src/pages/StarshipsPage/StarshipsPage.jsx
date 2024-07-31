@@ -2,7 +2,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import Header from "../../components/Header/Header"
 import NavesList from "../../components/StarshiplistCard/StarshiplistCard";
 
-const Home = () => {
+const StarshipsPage = () => {
   return (
     <>
       <Header />
@@ -12,4 +12,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default StarshipsPage;

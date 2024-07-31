@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Navbar() {
   return (
     <div className="navbar bg-black border border-custom-yellow">
@@ -22,10 +24,14 @@ function Navbar() {
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-black rounded-box z-[1] mt-3 w-52 p-2 shadow-lg">
             <li>
-              <a className="hover:text-custom-yellow">HOME</a>
+              <Link to="/home">
+                <a className="hover:text-custom-yellow">HOME</a>
+              </Link>
             </li>
             <li>
-              <a className="hover:text-custom-yellow">STARSHIPS</a>
+              <Link to="/starships">
+                <a className="hover:text-custom-yellow">STARSHIPS</a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -33,10 +39,14 @@ function Navbar() {
       <div className="navbar-center hidden lg:flex border border-custom-yellow ">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <a className=" hover:text-custom-yellow">HOME</a>
+            <Link to="/home">
+              <a className="hover:text-custom-yellow">HOME</a>
+            </Link>
           </li>
           <li>
-            <a className=" hover:text-custom-yellow">STARSHIPS</a>
+            <Link to="/starships">
+              <a className="hover:text-custom-yellow">STARSHIPS</a>
+            </Link>
           </li>
         </ul>
       </div>
@@ -44,9 +54,7 @@ function Navbar() {
         <button type="button" className="btn btn-primary mx-2">
           Log In
         </button>
-        <button
-          type="button"
-          className="btn btn-neutral">
+        <button type="button" className="btn btn-neutral">
           Log Out
         </button>
       </div>
