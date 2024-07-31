@@ -1,7 +1,7 @@
 function Navbar() {
   return (
     <div className="navbar bg-black border border-custom-yellow">
-      <div className="navbar-start border border-indigo-900">
+      <div className="navbar-start border border-neutral">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
@@ -30,7 +30,7 @@ function Navbar() {
           </ul>
         </div>
       </div>
-      <div className="navbar-center hidden lg:flex border border-custom-yellow">
+      <div className="navbar-center hidden lg:flex border border-custom-yellow ">
         <ul className="menu menu-horizontal px-1">
           <li>
             <a className=" hover:text-custom-yellow">HOME</a>

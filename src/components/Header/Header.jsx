@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 function Header() {
   const navigate = useNavigate();
   const goToHome = () => {
-    navigate("/home");
+    navigate("/");
   };
   return (
     <div className="container mx-auto my-6 flex-auto text-center">
