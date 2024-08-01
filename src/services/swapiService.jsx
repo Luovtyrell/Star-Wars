@@ -1,10 +1,16 @@
-import axios from 'axios';
+import axios from "axios";
 
-const API_URL = 'https://swapi.dev/api/starships/';
-
-const fetchStarships = async () => {
-  const response = await axios.get(API_URL);
-  return response.data;
+const fetchData = async (url) => {
+  try {
+    const response = await axios.get(url, {
+      headers: {
+        Accept: "application/json",
+      },
+    });
+    return response.data;
+  } catch (error) {
+    throw new Error("The information could not be obtained. Try again later.");
+  }
 };
 
-export default fetchStarships
+export default fetchData;

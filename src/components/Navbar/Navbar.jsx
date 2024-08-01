@@ -24,13 +24,13 @@ function Navbar() {
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-black rounded-box z-[1] mt-3 w-52 p-2 shadow-lg">
             <li>
-              <Link to="/home">
-                <a className="hover:text-custom-yellow">HOME</a>
+              <Link to="/home" className="hover:text-custom-yellow">
+                HOME
               </Link>
             </li>
             <li>
-              <Link to="/starships">
-                <a className="hover:text-custom-yellow">STARSHIPS</a>
+              <Link to="/starships" className="hover:text-custom-yellow">
+                STARSHIPS
               </Link>
             </li>
           </ul>
@@ -39,13 +39,13 @@ function Navbar() {
       <div className="navbar-center hidden lg:flex border border-custom-yellow ">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <Link to="/home">
-              <a className="hover:text-custom-yellow">HOME</a>
+            <Link to="/home" className="hover:text-custom-yellow">
+              HOME
             </Link>
           </li>
           <li>
-            <Link to="/starships">
-              <a className="hover:text-custom-yellow">STARSHIPS</a>
+            <Link to="/starships" className="hover:text-custom-yellow">
+              STARSHIPS
             </Link>
           </li>
         </ul>
