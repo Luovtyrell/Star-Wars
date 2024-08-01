@@ -3,7 +3,7 @@ import logOut from "../../assets/png/logout.png";
 
 function LoginLogout() {
   return (
-    <div className="navbar-end flex ml-auto mr-6 mt-4">
+    <div className="navbar-end flex ml-auto mr-6">
       <button
         type="button"
         className="btn btn-active btn-ghost hover:brightness-150">
