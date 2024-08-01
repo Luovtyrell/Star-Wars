@@ -10,6 +10,7 @@
     background-image: url(./assets/img/stars-black.jpg);
     background-size: 500%;
     background-position: center;
-    color: white;
+    background-color: black;
+    color: #b5b7b7;
   }
 }

@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
-    <div className="navbar bg-black border border-custom-yellow">
-      <div className="navbar-start border border-neutral">
+    <div className="navbar nav-border bg-black border-b border-b-star-white">
+      <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
@@ -24,40 +24,33 @@ function Navbar() {
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-black rounded-box z-[1] mt-3 w-52 p-2 shadow-lg">
             <li>
-              <Link to="/home" className="hover:text-custom-yellow">
+              <Link to="/home" className="hover:brightness-150">
                 HOME
               </Link>
             </li>
             <li>
-              <Link to="/starships" className="hover:text-custom-yellow">
+              <Link to="/starships" className="hover:brightness-150">
                 STARSHIPS
               </Link>
             </li>
           </ul>
         </div>
       </div>
-      <div className="navbar-center hidden lg:flex border border-custom-yellow ">
+      <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <Link to="/home" className="hover:text-custom-yellow">
+            <Link to="/home" className="hover:brightness-150">
               HOME
             </Link>
           </li>
           <li>
-            <Link to="/starships" className="hover:text-custom-yellow">
+            <Link to="/starships" className="hover:brightness-150">
               STARSHIPS
             </Link>
           </li>
         </ul>
       </div>
-      <div className="navbar-end">
-        <button type="button" className="btn btn-primary mx-2">
-          Log In
-        </button>
-        <button type="button" className="btn btn-neutral">
-          Log Out
-        </button>
-      </div>
+      <div className="navbar-end"></div>
     </div>
   );
 }

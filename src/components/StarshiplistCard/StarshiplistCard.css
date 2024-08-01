@@ -1,0 +1,49 @@
+.card-shape {
+  position: relative;
+  background-color: #1d1e1f;
+  margin: 20px auto;
+  transition: transform 0.3s, filter 0.3s;
+}
+
+.card-shape:hover .decal,
+.card-shape:hover .decal-dot  {
+  box-shadow: 0 0 5px 1px white;
+  background-color: white;
+}
+
+.card-shape::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 80%;
+  width: 150px;
+  height: 8px;
+  background-color: black;
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+}
+
+.decal {
+  content: "";
+  position: absolute;
+  background-color: #5a5c5d;
+  height: 4px;
+  width: 24px;
+  border-radius: 4px;
+  left: 95%;
+  z-index: 2;
+  transition: box-shadow 0.3s ease; 
+}
+
+.decal-dot {
+  content: "";
+  position: absolute;
+  background-color: #5a5c5d;
+  height: 4px;
+  width: 5px; 
+  border-radius: 50%;
+  left: 95%;
+  z-index: 2;
+  left: 120%;
+  transition: box-shadow 0.3s ease;
+}

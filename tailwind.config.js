@@ -8,8 +8,8 @@ export default {
   theme: {
     extend: {
       colors: {
+        'star-white': '#b5b7b7',
         'custom-yellow': '#a88819',
-        "neutral": "#312e81",
       },
     },
   },
@@ -23,11 +23,11 @@ export default {
           "primary": "#FFC500",
           "secondary": "#f6d860",
           "accent": "#37cdbe",
-          "neutral": "#312e81",
-          "base-100": "#312e81",
+          "neutral": "#FFC500",
+          "base-100": "#FFC500",
 
           "--rounded-box": "0rem", // border radius rounded-box utility class, used in card and other large boxes
-          "--rounded-btn": "0rem", // border radius rounded-btn utility class, used in buttons and similar element
+          "--rounded-btn": "1rem", // border radius rounded-btn utility class, used in buttons and similar element
           "--rounded-badge": "1.9rem", // border radius rounded-badge utility class, used in badges and similar
           "--animation-btn": "0.25s", // duration of animation when you click on button
           "--animation-input": "0.1s", // duration of animation for inputs like checkbox, toggle, radio, etc

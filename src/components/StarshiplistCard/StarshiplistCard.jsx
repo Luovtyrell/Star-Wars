@@ -1,6 +1,7 @@
 import useData from "../../hooks/useData";
+import "./StarshiplistCard.css";
 
-const StarshipsListCard = () => {
+function StarshipsListCard() {
   const {
     data: starships,
     loading,
@@ -24,13 +25,16 @@ const StarshipsListCard = () => {
       <div className="w-full max-w-4xl space-y-3">
         {starships.map((starship) => (
           <div
-            className="card text-stone-400 bg-black shadow-lg border border-custom-yellow transform hover:scale-100 hover:brightness-150 hover:border-neutral hover:border-opacity-80 transition-all duration-300"
+            className="card-shape shadow-lg transform hover:scale-100 hover:brightness-150 hover:border-neutral hover:border-opacity-80 transition-all duration-300"
             key={starship.url}>
+            <div className="decal mt-3"><div className="decal-dot"></div></div>
             <div className="card-body">
-              <h2 className="card-title text-2xl font-bold">{starship.name}</h2>
+              <h2 className="card-title text-2xl font-bold text">{starship.name}</h2>
               <p className="text-sm">{starship.model}</p>
               <div>
-              <button className="btn btn-active btn-ghost mt-3">Mostrar detalle</button>
+                <button className="btn btn-active btn-ghost btn-sm mt-3">
+                  Show details
+                </button>
               </div>
             </div>
           </div>
@@ -38,6 +42,6 @@ const StarshipsListCard = () => {
       </div>
     </div>
   );
-};
+}
 
 export default StarshipsListCard;
