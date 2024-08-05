@@ -8,7 +8,6 @@ const useData = (endpoint, isSingle = false) => {
 
   useEffect(() => {
     const loadData = async () => {
-      setLoading(true);
       try {
         const result = await fetchData(endpoint);
         setData(isSingle ? result : result.results);

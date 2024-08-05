@@ -1,7 +1,12 @@
 import AppRoutes from "./routes/AppRoutes";
+import { StarWarsProvider } from "./context/StarWarsContext";
 
 function App() {
-  return <AppRoutes />;
+  return (
+    <StarWarsProvider>
+      <AppRoutes />
+    </StarWarsProvider>
+  );
 }
 
 export default App;

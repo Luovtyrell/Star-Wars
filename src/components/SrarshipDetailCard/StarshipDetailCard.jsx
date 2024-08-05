@@ -1,7 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import useData from "../../hooks/useData";
 
-
 const StarshipDetailCard = () => {
   const { id } = useParams();
   const {
@@ -19,6 +18,21 @@ const StarshipDetailCard = () => {
   if (error) return <p className="text-red-500">Error: {error}</p>;
   if (!starship) return <p className="text-gray-500">No details found.</p>;
 
+  const starshipProperties = [
+    { key: "model", label: "Model" },
+    { key: "starship_class", label: "Class" },
+    { key: "manufacturer", label: "Manufacturer" },
+    { key: "cost_in_credits", label: "Cost in Credits" },
+    { key: "length", label: "Length" },
+    { key: "crew", label: "Crew" },
+    { key: "passengers", label: "Passengers" },
+    { key: "max_atmosphering_speed", label: "Max Speed" },
+    { key: "hyperdrive_rating", label: "Hyperdrive Rating" },
+    { key: "MGLT", label: "MGLT (Megalight)" },
+    { key: "cargo_capacity", label: "Cargo Capacity" },
+    { key: "consumables", label: "Consumables" },
+  ];
+
   return (
     <div className="flex justify-center p-4">
       <div className="w-full max-w-3xl space-y-4">
@@ -27,61 +41,25 @@ const StarshipDetailCard = () => {
             <div className="decal-dot"></div>
           </div>
           <div className="card-body">
-            <h1 className="text-3xl font-bold mb-4">{starship.name}</h1>
+            <h1 className="text-3xl font-bold mb-4 text-slate-200">
+              {starship.name.toUpperCase()}
+            </h1>
             <table className="w-full table-auto border-separate border-spacing-4">
               <tbody>
-                <tr>
-                  <td className="font-semibold w-48">Model:</td>
-                  <td>{starship.model}</td>
-                </tr>
-                <tr>
-                  <td className="font-semibold w-48">Class:</td>
-                  <td>{starship.starship_class}</td>
-                </tr>
-                <tr>
-                  <td className="font-semibold w-48">Manufacturer:</td>
-                  <td>{starship.manufacturer}</td>
-                </tr>
-                <tr>
-                  <td className="font-semibold w-48">Cost in Credits:</td>
-                  <td>{starship.cost_in_credits}</td>
-                </tr>
-                <tr>
-                  <td className="font-semibold w-48">Length:</td>
-                  <td>{starship.length} meters</td>
-                </tr>
-                <tr>
-                  <td className="font-semibold w-48">Crew:</td>
-                  <td>{starship.crew}</td>
-                </tr>
-                <tr>
-                  <td className="font-semibold w-48">Passengers:</td>
-                  <td>{starship.passengers}</td>
-                </tr>
-                <tr>
-                  <td className="font-semibold w-48">Max Speed:</td>
-                  <td>{starship.max_atmosphering_speed}</td>
-                </tr>
-                <tr>
-                  <td className="font-semibold w-48">Hyperdrive Rating:</td>
-                  <td>{starship.hyperdrive_rating}</td>
-                </tr>
-                <tr>
-                  <td className="font-semibold w-48">MGLT:</td>
-                  <td>{starship.MGLT}</td>
-                </tr>
-                <tr>
-                  <td className="font-semibold w-48">Cargo Capacity:</td>
-                  <td>{starship.cargo_capacity}</td>
-                </tr>
-                <tr>
-                  <td className="font-semibold w-48">Consumables:</td>
-                  <td>{starship.consumables}</td>
-                </tr>
+                {starshipProperties.map(({ key, label }) => (
+                  <tr key={key}>
+                    <td className="font-semibold w-48 text-slate-200">
+                      {label}:
+                    </td>
+                    <td>{starship[key]}</td>
+                  </tr>
+                ))}
               </tbody>
             </table>
             <div className="mt-4">
-              <Link to="/starships" className="btn btn-active btn-primary btn-sm mt-3">
+              <Link
+                to="/starships"
+                className="btn btn-active btn-primary btn-sm mt-3">
                 Return to Starships List
               </Link>
             </div>

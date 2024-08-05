@@ -39,7 +39,6 @@ const SocialLinks = () => (
           </a>
         </li>
       ))}
-      <div className="w-px h-6 bg-gray-400"></div>
     </ul>
   </div>
 );
