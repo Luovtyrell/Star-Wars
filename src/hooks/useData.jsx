@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import fetchData from "../services/swapiService";
 
-const useData = (endpoint) => {
-  const [data, setData] = useState([]);
+const useData = (endpoint, isSingle = false) => {
+  const [data, setData] = useState(isSingle ? null : []);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -11,7 +11,7 @@ const useData = (endpoint) => {
       setLoading(true);
       try {
         const result = await fetchData(endpoint);
-        setData(result.results);
+        setData(isSingle ? result : result.results);
       } catch (error) {
         setError(error.message);
       } finally {
@@ -20,7 +20,7 @@ const useData = (endpoint) => {
     };
 
     loadData();
-  }, [endpoint]);
+  }, [endpoint, isSingle]);
 
   return { data, loading, error };
 };

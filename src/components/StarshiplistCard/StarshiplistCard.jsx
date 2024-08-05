@@ -1,24 +1,22 @@
+import { Link } from "react-router-dom";
 import useData from "../../hooks/useData";
-import "./StarshiplistCard.css";
+import "./StarshipListCard.css";
+import getStarshipIdFromUrl from "../../helpers/getStarshipIdFromUrl";
 
-function StarshipsListCard() {
+const StarshipsListCard = () => {
   const {
     data: starships,
     loading,
     error,
   } = useData("https://swapi.dev/api/starships/");
 
-  if (loading) {
+  if (loading)
     return (
       <div className="flex justify-center items-center h-screen">
         <span className="loading loading-spinner text-primary"></span>
       </div>
     );
-  }
-
-  if (error) {
-    return <p className="text-red-500">Error: {error}</p>;
-  }
+  if (error) return <p className="text-red-500">Error: {error}</p>;
 
   return (
     <div className="flex justify-center p-4">
@@ -27,14 +25,18 @@ function StarshipsListCard() {
           <div
             className="card-shape shadow-lg transform hover:scale-100 hover:brightness-150 hover:border-neutral hover:border-opacity-80 transition-all duration-300"
             key={starship.url}>
-            <div className="decal mt-3"><div className="decal-dot"></div></div>
+            <div className="decal mt-3">
+              <div className="decal-dot"></div>
+            </div>
             <div className="card-body">
-              <h2 className="card-title text-2xl font-bold text">{starship.name}</h2>
+              <h2 className="card-title text-2xl font-bold">{starship.name}</h2>
               <p className="text-sm">{starship.model}</p>
               <div>
-                <button className="btn btn-active btn-ghost btn-sm mt-3">
+                <Link
+                  to={`/starships/${getStarshipIdFromUrl(starship.url)}`}
+                  className="btn btn-active btn-ghost btn-sm mt-3">
                   Show details
-                </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -42,6 +44,8 @@ function StarshipsListCard() {
       </div>
     </div>
   );
-}
+};
 
 export default StarshipsListCard;
+
+

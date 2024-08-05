@@ -8,7 +8,7 @@ function Header() {
         <img
           className="mx-auto cursor-pointer transition-transform transform hover:scale-110"
           src={starWars4}
-          alt="starwars"
+          alt="Star Wars Logo"
         />
       </Link>
     </div>

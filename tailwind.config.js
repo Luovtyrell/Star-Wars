@@ -9,7 +9,7 @@ export default {
     extend: {
       colors: {
         'star-white': '#b5b7b7',
-        'custom-yellow': '#a88819',
+        'custom-yellow': '#fade4b',
       },
     },
   },
@@ -20,7 +20,7 @@ export default {
     themes: [
       {
         mytheme: {
-          "primary": "#FFC500",
+          "primary": "#fade4b",
           "secondary": "#f6d860",
           "accent": "#37cdbe",
           "neutral": "#FFC500",
