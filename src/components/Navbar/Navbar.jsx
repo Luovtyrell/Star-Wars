@@ -24,7 +24,7 @@ function Navbar() {
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-black rounded-box z-[1] mt-3 w-52 p-2 shadow-lg">
             <li>
-              <Link to="/home" className="hover:brightness-150">
+              <Link to="/" className="hover:brightness-150">
                 HOME
               </Link>
             </li>
@@ -39,7 +39,7 @@ function Navbar() {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <Link to="/home" className="hover:brightness-150">
+            <Link to="/" className="hover:brightness-150">
               HOME
             </Link>
           </li>
