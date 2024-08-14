@@ -3,11 +3,13 @@ import SocialLinks from "../../components/SocialLinks/SocialLinks";
 import Header from "../../components/Header/Header";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
+import LoginLogout from "../../components/LoginLogout/LoginLogout";
 
 const Home = () => {
   return (
     <div>
       <SocialLinks />
+      <LoginLogout />
       <Header />
       <Navbar />
       <div

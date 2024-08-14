@@ -1,11 +1,14 @@
 import AppRoutes from "./routes/AppRoutes";
 import { StarWarsProvider } from "./context/StarWarsContext";
+import { AuthProvider } from "./context/AuthContext";
 
 function App() {
   return (
-    <StarWarsProvider>
-      <AppRoutes />
-    </StarWarsProvider>
+    <AuthProvider>
+      <StarWarsProvider>
+        <AppRoutes />
+      </StarWarsProvider>
+    </AuthProvider>
   );
 }
 
