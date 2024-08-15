@@ -1,5 +1,5 @@
-const getFromUrl = (url) => {
-  return url.split("/").slice(-2, -1)[0];
+const getIdFromUrl = (url) => {
+  return url.split('/').filter(Boolean).pop();
 };
 
-export default getFromUrl
+export default getIdFromUrl;

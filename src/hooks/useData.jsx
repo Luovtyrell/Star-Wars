@@ -10,7 +10,6 @@ const useData = (endpoint, isSingle = false) => {
     const loadData = async () => {
       try {
         if (Array.isArray(endpoint)) {
-          // Handle array of URLs (pilots)
           const results = await Promise.all(endpoint.map(url => fetchData(url)));
           setData(results);
         } else {

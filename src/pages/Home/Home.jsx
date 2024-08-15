@@ -26,7 +26,7 @@ const Home = () => {
               Dive into the world of space battles, legendary ships, and
               intergalactic adventures.
             </p>
-            <div className="flex space-x-4 items-center">
+            <div className="space-x-4 items-center">
               <Link to="/starships">
                 <button className="btn btn-active btn-ghost btn-sm ">
                   View Starships
@@ -35,11 +35,6 @@ const Home = () => {
               <Link to="/pilots">
                 <button className="btn btn-active btn-ghost btn-sm">
                   View Pilots
-                </button>
-              </Link>
-              <Link to="/films">
-                <button className="btn btn-active btn-ghost btn-sm">
-                  View Films
                 </button>
               </Link>
             </div>

@@ -1,13 +1,19 @@
 import { Link, useParams } from "react-router-dom";
 import { useStarWars } from "../../context/StarWarsContext";
 import useData from "../../hooks/useData";
-import { getStarshipImageUrl, getPilotImageUrl } from "../../helpers/imageHelpers";
+import {
+  getStarshipImageUrl,
+  getPilotImageUrl,
+  getFilmImageUrl,
+} from "../../helpers/imageHelpers";
+import getIdFromUrl from "../../helpers/getFromUrl";
 
 const StarshipDetailCard = () => {
   const { id } = useParams();
   const { starships } = useStarWars();
   const starship = starships.find((s) => s.url.endsWith(`${id}/`));
   const pilotUrls = starship?.pilots || [];
+  const filmUrls = starship?.films || [];
 
   const {
     data: starshipData,
@@ -19,9 +25,15 @@ const StarshipDetailCard = () => {
     data: pilotData,
     loading: pilotsLoading,
     error: pilotsError,
-  } = useData(pilotUrls, false); // Assuming pilotUrls is an array
+  } = useData(pilotUrls, false);
 
-  if (starshipLoading || pilotsLoading) {
+  const {
+    data: filmData,
+    loading: filmsLoading,
+    error: filmsError,
+  } = useData(filmUrls, false);
+
+  if (starshipLoading || pilotsLoading || filmsLoading) {
     return (
       <div className="flex justify-center items-center h-screen">
         <span className="loading loading-spinner text-primary"></span>
@@ -29,9 +41,18 @@ const StarshipDetailCard = () => {
     );
   }
 
-  if (starshipError || pilotsError) {
-    console.error("Starship or Pilots loading error:", starshipError, pilotsError);
-    return <p className="text-red-500">Error: {starshipError || pilotsError}</p>;
+  if (starshipError || pilotsError || filmsError) {
+    console.error(
+      "Starship or Pilots or Films loading error:",
+      starshipError,
+      pilotsError,
+      filmsError
+    );
+    return (
+      <p className="text-red-500">
+        Error: {starshipError || pilotsError || filmsError}
+      </p>
+    );
   }
 
   if (!starshipData) return <p className="text-gray-500">No details found.</p>;
@@ -64,9 +85,9 @@ const StarshipDetailCard = () => {
             <h1 className="text-3xl font-bold mb-4 text-slate-200">
               {starshipData.name.toUpperCase()}
             </h1>
-            <img 
-              src={imageUrl} 
-              alt={`${starshipData.name}`} 
+            <img
+              src={imageUrl}
+              alt={`${starshipData.name}`}
               className="w-full h-auto mb-4 rounded-lg shadow-lg"
             />
             <table className="w-full table-auto border-separate border-spacing-4">
@@ -82,26 +103,56 @@ const StarshipDetailCard = () => {
               </tbody>
             </table>
             <div className="mt-4">
-              <h2 className="text-2xl font-semibold text-slate-200 mb-2">Pilots</h2>
+              <h2 className="text-2xl font-semibold text-slate-200 mb-2">
+                Pilots
+              </h2>
               {pilotData.length > 0 ? (
                 <div className="flex flex-wrap gap-4">
                   {pilotData.map((pilot) => (
                     <Link
-                      to={`/pilots/${pilot.url.split('/')[5]}`} // Assuming the URL is in the format: `https://swapi.dev/api/people/1/`
+                      to={`/pilots/${getIdFromUrl(pilot.url)}`}
                       key={pilot.name}
-                      className="block max-w-[150px]"
-                    >
+                      className="block max-w-[150px]">
                       <img
-                        src={getPilotImageUrl(pilot.url.split('/')[5])}
+                        src={getPilotImageUrl(getIdFromUrl(pilot.url))}
                         alt={pilot.name}
                         className="w-full h-auto rounded-lg shadow-lg hover:opacity-80 transition-opacity duration-300"
                       />
-                      <p className="text-center text-slate-200 mt-2">{pilot.name}</p>
+                      <p className="text-center text-slate-200 mt-2">
+                        {pilot.name}
+                      </p>
                     </Link>
                   ))}
                 </div>
               ) : (
-                <p className="text-gray-500">No pilots found for this starship.</p>
+                <p className="text-gray-500">
+                  No pilots found for this starship.
+                </p>
+              )}
+            </div>
+            <div className="mt-4">
+              <h2 className="text-2xl font-semibold text-slate-200 mb-2">
+                Films
+              </h2>
+              {filmData.length > 0 ? (
+                <div className="flex flex-wrap gap-4">
+                  {filmData.map((film) => (
+                    <div key={film.episode_id} className="block max-w-[150px]">
+                      <img
+                        src={getFilmImageUrl(film.episode_id)}
+                        alt={film.title}
+                        className="w-full h-auto rounded-lg shadow-lg hover:opacity-80 transition-opacity duration-300"
+                      />
+                      <p className="text-center text-slate-200 mt-2">
+                        {film.title}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <p className="text-gray-500">
+                  No films found for this starship.
+                </p>
               )}
             </div>
             <div className="mt-4">
