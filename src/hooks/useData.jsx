@@ -9,8 +9,14 @@ const useData = (endpoint, isSingle = false) => {
   useEffect(() => {
     const loadData = async () => {
       try {
-        const result = await fetchData(endpoint);
-        setData(isSingle ? result : result.results);
+        if (Array.isArray(endpoint)) {
+          // Handle array of URLs (pilots)
+          const results = await Promise.all(endpoint.map(url => fetchData(url)));
+          setData(results);
+        } else {
+          const result = await fetchData(endpoint);
+          setData(isSingle ? result : result.results);
+        }
       } catch (error) {
         setError(error.message);
       } finally {
