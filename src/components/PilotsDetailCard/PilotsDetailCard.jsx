@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import useData from "../../hooks/useData";
+import { getPilotImageUrl } from "../../helpers/imageHelpers";
 
 const PilotDetailCard = () => {
   const { id } = useParams();
@@ -18,6 +19,8 @@ const PilotDetailCard = () => {
   if (error) return <p className="text-red-500">Error: {error}</p>;
   if (!pilot) return <p className="text-gray-500">No details found.</p>;
 
+  const imageUrl = getPilotImageUrl(id);
+
   const pilotProperties = [
     { key: "name", label: "Name" },
     { key: "height", label: "Height" },
@@ -31,33 +34,39 @@ const PilotDetailCard = () => {
 
   return (
     <div className="flex justify-center p-4">
-      <div className="w-full max-w-3xl space-y-4">
+      <div className="w-full max-w-4xl">
         <div className="card-shape shadow-lg hover:brightness-105 hover:border-neutral hover:border-opacity-80 transition-all duration-300 p-6 rounded-lg">
-          <div className="decal mt-3">
-            <div className="decal-dot"></div>
-          </div>
-          <div className="card-body">
-            <h1 className="text-3xl font-bold mb-4 text-slate-200">
-              {pilot.name.toUpperCase()}
-            </h1>
-            <table className="w-full table-auto border-separate border-spacing-4">
-              <tbody>
-                {pilotProperties.map(({ key, label }) => (
-                  <tr key={key}>
-                    <td className="font-semibold w-48 text-slate-200">
-                      {label}:
-                    </td>
-                    <td>{pilot[key]}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-            <div className="mt-4">
-              <Link
-                to="/pilots"
-                className="btn btn-active btn-primary btn-sm mt-3">
-                Return to pilots
-              </Link>
+          <div className="flex flex-row items-start space-x-4">
+            <div className="flex-1">
+              <h1 className="text-3xl font-bold mb-4 text-slate-200">
+                {pilot.name.toUpperCase()}
+              </h1>
+              <table className="w-full table-auto border-separate border-spacing-4">
+                <tbody>
+                  {pilotProperties.map(({ key, label }) => (
+                    <tr key={key}>
+                      <td className="font-semibold w-48 text-slate-200">
+                        {label}:
+                      </td>
+                      <td>{pilot[key]}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+              <div className="mt-4">
+                <Link
+                  to="/pilots"
+                  className="btn btn-active btn-primary btn-sm mt-3">
+                  Return to Pilots
+                </Link>
+              </div>
+            </div>
+            <div className="flex-shrink-0">
+              <img
+                src={imageUrl}
+                alt={`${pilot.name}`}
+                className="w-48 h-auto rounded-lg shadow-lg"
+              />
             </div>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import useData from "../../hooks/useData";
+import { getStarshipImageUrl } from "../../helpers/imageHelpers";
 
 const StarshipDetailCard = () => {
   const { id } = useParams();
@@ -17,6 +18,9 @@ const StarshipDetailCard = () => {
     );
   if (error) return <p className="text-red-500">Error: {error}</p>;
   if (!starship) return <p className="text-gray-500">No details found.</p>;
+
+
+  const imageUrl = getStarshipImageUrl(id);
 
   const starshipProperties = [
     { key: "model", label: "Model" },
@@ -44,6 +48,11 @@ const StarshipDetailCard = () => {
             <h1 className="text-3xl font-bold mb-4 text-slate-200">
               {starship.name.toUpperCase()}
             </h1>
+            <img 
+              src={imageUrl} 
+              alt={`${starship.name}`} 
+              className="w-full h-auto mb-4 rounded-lg shadow-lg"
+            />
             <table className="w-full table-auto border-separate border-spacing-4">
               <tbody>
                 {starshipProperties.map(({ key, label }) => (

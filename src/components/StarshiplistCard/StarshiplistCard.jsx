@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import { useStarWars } from "../../context/StarWarsContext";
-import "./StarshipListCard.css";
 import getFromUrl from "../../helpers/getFromUrl";
+import "./StarshipListCard.css";
 
 function StarshipsListCard() {
-  const { starships, loading, error, loadMore, hasMore } = useStarWars();
+  const { starships, loading, error, loadMoreStarships, hasMoreStarships } =
+    useStarWars();
 
   if (loading && !starships.length) {
     return (
@@ -17,6 +18,8 @@ function StarshipsListCard() {
   if (error) {
     return <p className="text-red-500">Error: {error}</p>;
   }
+
+  
 
   return (
     <div className="flex justify-center p-4">
@@ -41,10 +44,10 @@ function StarshipsListCard() {
             </div>
           </div>
         ))}
-        {hasMore && (
+        {hasMoreStarships && (
           <div className="text-center mt-4">
             <button
-              onClick={loadMore}
+              onClick={loadMoreStarships}
               className={`btn btn-active btn-primary ${loading ? "loading" : ""}`}
               disabled={loading}>
               {loading ? "Loading..." : "View More"}
