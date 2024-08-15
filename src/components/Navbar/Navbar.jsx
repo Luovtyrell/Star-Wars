@@ -33,6 +33,11 @@ function Navbar() {
                 STARSHIPS
               </Link>
             </li>
+            <li>
+              <Link to="/pilots" className="hover:brightness-150">
+                PILOTS
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
@@ -46,6 +51,11 @@ function Navbar() {
           <li>
             <Link to="/starships" className="hover:brightness-150">
               STARSHIPS
+            </Link>
+          </li>
+          <li>
+            <Link to="/pilots" className="hover:brightness-150">
+              PILOTS
             </Link>
           </li>
         </ul>

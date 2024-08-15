@@ -7,18 +7,39 @@ export const useStarWars = () => useContext(StarWarsContext);
 
 export const StarWarsProvider = ({ children }) => {
   const [starships, setStarships] = useState([]);
+  const [pilots, setPilots] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [nextPage, setNextPage] = useState("https://swapi.dev/api/starships/");
+  const [nextStarshipPage, setNextStarshipPage] = useState(
+    "https://swapi.dev/api/starships/"
+  );
+  const [nextPilotPage, setNextPilotPage] = useState(
+    "https://swapi.dev/api/people/"
+  );
 
-  const loadMore = async () => {
-    if (!nextPage) return;
+  const loadMoreStarships = async () => {
+    if (!nextStarshipPage) return;
 
     setLoading(true);
     try {
-      const data = await fetchData(nextPage);
+      const data = await fetchData(nextStarshipPage);
       setStarships((prevStarships) => [...prevStarships, ...data.results]);
-      setNextPage(data.next);
+      setNextStarshipPage(data.next);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const loadMorePilots = async () => {
+    if (!nextPilotPage) return;
+
+    setLoading(true);
+    try {
+      const data = await fetchData(nextPilotPage);
+      setPilots((prevPilots) => [...prevPilots, ...data.results]);
+      setNextPilotPage(data.next);
     } catch (err) {
       setError(err.message);
     } finally {
@@ -27,17 +48,21 @@ export const StarWarsProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    loadMore();
+    loadMoreStarships();
+    loadMorePilots();
   }, []);
 
   return (
     <StarWarsContext.Provider
       value={{
         starships,
+        pilots,
         loading,
         error,
-        loadMore,
-        hasMore: Boolean(nextPage),
+        loadMoreStarships,
+        loadMorePilots,
+        hasMoreStarships: Boolean(nextStarshipPage),
+        hasMorePilots: Boolean(nextPilotPage),
       }}>
       {children}
     </StarWarsContext.Provider>

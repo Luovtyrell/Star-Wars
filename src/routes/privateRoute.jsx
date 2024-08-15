@@ -2,7 +2,7 @@ import { Navigate, useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 import { useAuth } from "../context/AuthContext";
 
-const PrivateRoute = ({ element }) => {
+const PrivateRoute = ({ children }) => {
   const { user } = useAuth();
   const location = useLocation();
 
@@ -10,11 +10,11 @@ const PrivateRoute = ({ element }) => {
     return <Navigate to="/register" state={{ from: location }} replace />;
   }
 
-  return element;
+  return children;
 };
 
 PrivateRoute.propTypes = {
-  element: PropTypes.element.isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 export default PrivateRoute;

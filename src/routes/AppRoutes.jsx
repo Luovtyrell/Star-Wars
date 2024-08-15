@@ -6,6 +6,8 @@ import LoginPage from "../pages/LoginPage/LoginPage";
 import RegisterPage from "../pages/RegisterPage/RegisterPage";
 import PrivateRoute from "./privateRoute";
 import { AuthProvider } from "../context/AuthContext";
+import PilotsPage from "../pages/PilotsPage/PilotsPage";
+import PilotDetailPage from "../pages/PilotsDetailPage/PilotsDetailPage";
 
 const AppRoutes = () => {
   return (
@@ -17,11 +19,35 @@ const AppRoutes = () => {
           <Route path="/register" element={<RegisterPage />} />
           <Route
             path="/starships"
-            element={<PrivateRoute element={<StarshipsPage />} />}
+            element={
+              <PrivateRoute>
+                <StarshipsPage />
+              </PrivateRoute>
+            }
           />
           <Route
             path="/starships/:id"
-            element={<PrivateRoute element={<StarshipDetailPage />} />}
+            element={
+              <PrivateRoute>
+                <StarshipDetailPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/pilots"
+            element={
+              <PrivateRoute>
+                <PilotsPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/pilots/:id"
+            element={
+              <PrivateRoute>
+                <PilotDetailPage />
+              </PrivateRoute>
+            }
           />
         </Routes>
       </Router>

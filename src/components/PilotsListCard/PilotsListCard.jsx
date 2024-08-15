@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
 import { useStarWars } from "../../context/StarWarsContext";
-import "./StarshipListCard.css";
 import getFromUrl from "../../helpers/getFromUrl";
+import "./PilotsListCard.css";
 
-function StarshipsListCard() {
-  const { starships, loading, error, loadMore, hasMore } = useStarWars();
+function PilotsListCard() {
+  const { pilots, loading, error, loadMorePilots, hasMorePilots } =
+    useStarWars();
 
-  if (loading && !starships.length) {
+  if (loading && !pilots.length) {
     return (
       <div className="flex justify-center items-center h-screen">
         <span className="loading loading-spinner text-primary"></span>
@@ -21,7 +22,7 @@ function StarshipsListCard() {
   return (
     <div className="flex justify-center p-4">
       <div className="w-full max-w-4xl space-y-3">
-        {starships.map(({ url, name, model }) => (
+        {pilots.map(({ url, name }) => (
           <div
             className="card-shape shadow-lg transform hover:scale-100 hover:brightness-150 hover:border-neutral hover:border-opacity-80 transition-all duration-300"
             key={url}>
@@ -30,10 +31,9 @@ function StarshipsListCard() {
             </div>
             <div className="card-body">
               <h2 className="card-title text-2xl font-bold">{name}</h2>
-              <p className="text-sm">{model}</p>
               <div>
                 <Link
-                  to={`/starships/${getFromUrl(url)}`}
+                  to={`/pilots/${getFromUrl(url)}`}
                   className="btn btn-active btn-ghost btn-sm mt-3">
                   Show details
                 </Link>
@@ -41,10 +41,10 @@ function StarshipsListCard() {
             </div>
           </div>
         ))}
-        {hasMore && (
+        {hasMorePilots && (
           <div className="text-center mt-4">
             <button
-              onClick={loadMore}
+              onClick={loadMorePilots}
               className={`btn btn-active btn-primary ${loading ? "loading" : ""}`}
               disabled={loading}>
               {loading ? "Loading..." : "View More"}
@@ -56,4 +56,4 @@ function StarshipsListCard() {
   );
 }
 
-export default StarshipsListCard;
+export default PilotsListCard;

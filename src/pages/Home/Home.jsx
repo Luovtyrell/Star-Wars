@@ -21,16 +21,28 @@ const Home = () => {
         <div className="hero-content text-neutral-content text-center">
           <div className="max-w-md">
             <h1 className="mb-5 text-6xl font-bold">Hello there</h1>
-            <p className="mb-5 text-xl">
+            <p className="mb-5 text-xl flex space-x-4 text-center items-center">
               Explore the most iconic starships from the galaxy far, far away.
               Dive into the world of space battles, legendary ships, and
               intergalactic adventures.
             </p>
-            <Link to="/starships">
-              <button className="btn btn-active btn-ghost btn-sm">
-                View Starships
-              </button>
-            </Link>
+            <div className="flex space-x-4 items-center">
+              <Link to="/starships">
+                <button className="btn btn-active btn-ghost btn-sm ">
+                  View Starships
+                </button>
+              </Link>
+              <Link to="/pilots">
+                <button className="btn btn-active btn-ghost btn-sm">
+                  View Pilots
+                </button>
+              </Link>
+              <Link to="/films">
+                <button className="btn btn-active btn-ghost btn-sm">
+                  View Films
+                </button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
