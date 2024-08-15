@@ -1,7 +1,7 @@
 import { useAuth } from "../../context/AuthContext";
 import Navbar from "../../components/Navbar/Navbar";
 import Header from "../../components/Header/Header";
-import StarshipsListCard from "../../../src/components/StarshipListCard/StarshipListCard";
+import StarshipsListCard from '@components/StarshipListCard/StarshipListCard';
 import LoginLogout from "../../components/LoginLogout/LoginLogout";
 import SocialLinks from "../../components/SocialLinks/SocialLinks";
 
