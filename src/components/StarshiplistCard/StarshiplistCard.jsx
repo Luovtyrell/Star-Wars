@@ -3,7 +3,7 @@ import { useStarWars } from "../../context/StarWarsContext";
 import getFromUrl from "../../helpers/getFromUrl";
 import "./StarshipListCard.css";
 
-function StarshipsListCard() {
+function StarshipListCard() {
   const { starships, loading, error, loadMoreStarships, hasMoreStarships } =
     useStarWars();
 
@@ -57,4 +57,4 @@ function StarshipsListCard() {
   );
 }
 
-export default StarshipsListCard;
+export default StarshipListCard;
