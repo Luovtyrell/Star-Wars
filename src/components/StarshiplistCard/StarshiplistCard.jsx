@@ -19,8 +19,6 @@ function StarshipsListCard() {
     return <p className="text-red-500">Error: {error}</p>;
   }
 
-  
-
   return (
     <div className="flex justify-center p-4">
       <div className="w-full max-w-4xl space-y-3">
