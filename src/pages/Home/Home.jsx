@@ -4,6 +4,7 @@ import Header from "../../components/Header/Header";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import LoginLogout from "../../components/LoginLogout/LoginLogout";
+import backgroundHome from "../../assets/img/skeletonCrew.jpg"
 
 const Home = () => {
   return (
@@ -13,10 +14,7 @@ const Home = () => {
       <Header />
       <Navbar />
       <div
-        className="hero min-h-screen"
-        style={{
-          backgroundImage: "url(/src/assets/img/skeletonCrew.jpg)",
-        }}>
+        className="hero min-h-screen"> <img className="hero w-full h-full object-cover" src={backgroundHome} alt="backgroundHome"/>
         <div className="hero-overlay bg-opacity-20"></div>
         <div className="hero-content text-neutral-content text-center">
           <div className="max-w-md">
