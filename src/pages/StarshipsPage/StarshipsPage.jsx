@@ -3,7 +3,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import Header from "../../components/Header/Header";
 import LoginLogout from "../../components/LoginLogout/LoginLogout";
 import SocialLinks from "../../components/SocialLinks/SocialLinks";
-import StarshipListCard from "../../components/StarshipListCard/StarshipListCard"
+import StarshipListCard from "../../components/StarshipListCard/StarshipListCard";
 
 const StarshipsPage = () => {
   const { user } = useAuth();
