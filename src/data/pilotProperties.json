@@ -1,0 +1,10 @@
+[
+  { "key": "name", "label": "NAME" },
+  { "key": "height", "label": "HEIGHT" },
+  { "key": "mass", "label": "MASS" },
+  { "key": "hair_color", "label": "HAIR COLOR" },
+  { "key": "skin_color", "label": "SKIN COLOR" },
+  { "key": "eye_color", "label": "EYE COLOR" },
+  { "key": "birth_year", "label": "BIRTH YEAR" },
+  { "key": "gender", "label": "GENDER" }
+]

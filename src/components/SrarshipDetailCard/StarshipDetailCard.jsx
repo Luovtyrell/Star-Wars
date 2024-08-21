@@ -7,11 +7,13 @@ import {
   getFilmImageUrl,
 } from "../../helpers/imageHelpers";
 import getIdFromUrl from "../../helpers/getFromUrl";
+import { findStarshipById } from "../../helpers/findStarship";
+import starshipProperties from "../../data/starshipProperties.json";
 
 const StarshipDetailCard = () => {
   const { id } = useParams();
   const { starships } = useStarWars();
-  const starship = starships.find((s) => s.url.endsWith(`${id}/`));
+  const starship = findStarshipById(starships, id);
   const pilotUrls = starship?.pilots || [];
   const filmUrls = starship?.films || [];
 
@@ -58,21 +60,6 @@ const StarshipDetailCard = () => {
   if (!starshipData) return <p className="text-gray-500">No details found.</p>;
 
   const imageUrl = getStarshipImageUrl(id);
-
-  const starshipProperties = [
-    { key: "model", label: "Model" },
-    { key: "starship_class", label: "Class" },
-    { key: "manufacturer", label: "Manufacturer" },
-    { key: "cost_in_credits", label: "Cost in Credits" },
-    { key: "length", label: "Length" },
-    { key: "crew", label: "Crew" },
-    { key: "passengers", label: "Passengers" },
-    { key: "max_atmosphering_speed", label: "Max Speed" },
-    { key: "hyperdrive_rating", label: "Hyperdrive Rating" },
-    { key: "MGLT", label: "MGLT (Megalight)" },
-    { key: "cargo_capacity", label: "Cargo Capacity" },
-    { key: "consumables", label: "Consumables" },
-  ];
 
   return (
     <div className="flex justify-center p-4">

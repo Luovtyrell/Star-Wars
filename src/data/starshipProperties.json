@@ -1,0 +1,15 @@
+[
+  { "key": "name", "label": "NAME" },
+  { "key": "model", "label": "MODEL" },
+  { "key": "manufacturer", "label": "MANUFACTURER" },
+  { "key": "cost_in_credits", "label": "COST IN CREDITS" },
+  { "key": "length", "label": "LENGTH" },
+  { "key": "max_atmosphering_speed", "label": "MAX ATMOSPHERING SPEED" },
+  { "key": "crew", "label": "CREW" },
+  { "key": "passengers", "label": "PASSENGERS" },
+  { "key": "cargo_capacity", "label": "CARGO CAPACITY" },
+  { "key": "consumables", "label": "CONSUMABLES" },
+  { "key": "hyperdrive_rating", "label": "HYPERDRIVE RATING" },
+  { "key": "MGLT", "label": "MGLT (Megalight)" },
+  { "key": "starship_class", "label": "STARSHIP CLASS" }
+]
