@@ -216,13 +216,11 @@ To get started with the Star Wars Web Application locally, follow these steps:
 
 ## Star Wars API (SWAPI)
 
-In this project, I have utilized the [Star Wars API](https://swapi.dev/api/) to fetch information related to starships, films, pilots and characters. You can refer to the API documentation for more details on the available endpoints and how to interact with them:  [API documentation](https://swapi.dev/api/)
-
-Additionally, I have used the [Star Wars Visual Guide](https://starwars-visualguide.com/assets/img) as a server for retrieving images related to Star Wars characters, starships, films, and other elements. This server provides image resources that complement the data retrieved from the API.
+In this project, I have utilized the [Star Wars API](https://swapi.dev/) to fetch information related to starships, films, pilots and characters. Additionally, I have used the [Star Wars Visual Guide](https://starwars-visualguide.com/#/) as a server for retrieving images related to Star Wars characters, starships, films, and other elements. This server provides image resources that complement the data retrieved from the API.
 
 ### How to Use
 
-- **Star Wars API**: Provides structured data about Star Wars entities. See the for details on endpoints and usage: [API documentation](https://swapi.dev/api/)
+- **Star Wars API**: Provides structured data about Star Wars entities. See the for details on endpoints and usage: [API documentation](https://swapi.dev/documentation)
 - **Star Wars Visual Guide**: Supplies image URLs for visual representation. For example, images can be accessed at `https://starwars-visualguide.com/assets/img/characters/1.jpg` for a specific character.
 
 <br>
