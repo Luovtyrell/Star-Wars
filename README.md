@@ -27,6 +27,8 @@ The project consists of developing a web application to visualize information ab
 
 ## Project Overview
 
+<details>
+  
 ```
 dist/
 node_modules/
@@ -125,6 +127,7 @@ tailwind.config.js
 vercel.config.js
 vite.config.js
 ```
+</details>
 <br>
 
 ## Technologies
